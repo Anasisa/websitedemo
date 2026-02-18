@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Birthday Maryam ❤️</title>
+
+<style>
+
+body{
+margin:0;
+padding:0;
+background:black;
+font-family:Arial;
+overflow:hidden;
+color:white;
+text-align:center;
+}
+
+/* Background photo */
+
+.hero{
+
+position:relative;
+
+height:100vh;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+flex-direction:column;
+
+}
+
+.hero img{
+
+width:300px;
+
+border-radius:20px;
+
+box-shadow:0 0 40px red;
+
+animation:float 6s ease-in-out infinite;
+
+}
+
+@keyframes float{
+
+0%,100%{transform:translateY(0)}
+
+50%{transform:translateY(-20px)}
+
+}
+
+
+/* Typing text */
+
+.message{
+
+margin-top:30px;
+
+font-size:28px;
+
+max-width:800px;
+
+}
+
+
+/* Button */
+
+button{
+
+padding:15px 30px;
+
+font-size:20px;
+
+background:red;
+
+color:white;
+
+border:none;
+
+border-radius:10px;
+
+cursor:pointer;
+
+margin-top:20px;
+
+}
+
+
+/* Hearts */
+
+.heart{
+
+position:absolute;
+
+color:red;
+
+animation:fall linear infinite;
+
+font-size:24px;
+
+}
+
+@keyframes fall{
+
+0%{
+
+transform:translateY(-100px);
+
+opacity:1;
+
+}
+
+100%{
+
+transform:translateY(100vh);
+
+opacity:0;
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+<div class="hero">
+
+<img src="maryam.jpeg">
+
+<div class="message" id="text"></div>
+
+<button onclick="start()">Play Music 🎵</button>
+
+</div>
+
+
+<audio id="music" loop>
+
+<source src="WizKid-Fever.mp3">
+
+</audio>
+
+
+
+<script>
+
+
+const message = `
+
+Happy Birthday Maryam, Doctor Hamda to be in sha ALLAH ❤️
+
+On this special day of your life,
+
+I wish you Happiness, peace of mind, sound health, 
+
+Allah protections and abundant blessing,
+
+I pray that happiness and joy shall never cease from your life.
+
+Wishing you many Happy returns.
+
+`;
+
+
+
+let i=0;
+
+function type(){
+
+if(i<message.length){
+
+document.getElementById("text").innerHTML+=message.charAt(i);
+
+i++;
+
+setTimeout(type,50);
+
+}
+
+}
+
+
+
+function start(){
+
+document.getElementById("music").play();
+
+type();
+
+}
+
+
+
+/* Hearts */
+
+function createHeart(){
+
+const heart=document.createElement("div");
+
+heart.className="heart";
+
+heart.innerHTML="❤️";
+
+heart.style.left=Math.random()*100+"vw";
+
+heart.style.animationDuration=(Math.random()*3+3)+"s";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>heart.remove(),6000);
+
+}
+
+setInterval(createHeart,300);
+
+
+
+</script>
+
+
+</body>
+</html>
